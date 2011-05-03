@@ -1,0 +1,1 @@
+,data/BPontDesArts.png,data/CRueDauphine.png,data/DRueSaintSauveur.png,data/ELouvre.png,data/Fpalaisroyal.png,data/Gforumdeshalles.png,data/HArchives.png,data/Ipompidou.png,data/Jblancsmanteaux.png,data/Kruedesbourdonna.png,data/Ltemplestmarie.png,data/Mplacedesvosges.png,data/Ngaredelarsenal.png,data/OEglStGervais.png"

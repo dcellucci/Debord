@@ -1,0 +1,106 @@
+// 	Processing.js Example
+/* @pjs preload="data/0dubord2.png,data/APontNeuf.png,data/BPontDesArts.png,data/CRueDauphine.png,data/DRueSaintSauveur.png,data/ELouvre.png,data/Fpalaisroyal.png,data/Gforumdeshalles.png,data/HArchives.png,data/Ipompidou.png,data/Jblancsmanteaux.png,data/Kruedesbourdonna.png,data/Ltemplestmarie.png,data/Mplacedesvosges.png,data/Ngaredelarsenal.png,data/OEglStGervais.png"; */
+
+PImage parBG, db1, db2, db3, db4,db5, db6,db7,db8,db9,db10,db11,db12,db13,db14,db15;
+PFont debug;
+float RATIO = 2500.0/2656.0;
+float FIX = 2500.0/5290.0;
+int hAnc, vAnc, nwidth,nheight, aCount,gate1,gate2,gate3;
+float factor,xoff,yoff;
+
+boolean animating;
+void setup() {
+	size(800, 800*RATIO);
+	
+	//initalization of misc variables;
+	factor = 1.0;
+	hAnc = 0; 
+	vAnc = 0;
+	aCount = 0;
+	gate1 = 100;
+	animating = false;
+	xoff = 0.0;
+	yoff = 0.0;
+	
+	//pictures
+	parBG = loadImage("data/0dubord2.png");
+	db1 = requestImage("data/APontNeuf.png");
+	db2 = requestImage("data/BPontDesArts.png");
+	db3 = requestImage("data/CRueDauphine.png");
+	db4 = requestImage("data/DRueSaintSauveur.png");
+	db5 = requestImage("data/ELouvre.png");
+	db6 = requestImage("data/Fpalaisroyal.png");
+	db7 = requestImage("data/Gforumdeshalles.png");
+	db8 = requestImage("data/HArchives.png");
+	db9 = requestImage("data/Ipompidou.png");
+	db10 = requestImage("data/Jblancsmanteaux.png");
+	db11 = requestImage("data/Kruedesbourdonna.png");
+ 	db12 = requestImage("data/Ltemplestmarie.png");
+	db13 = requestImage("data/Mplacedesvosges.png");
+	db14 = requestImage("data/Ngaredelarsenal.png");
+	db15 = requestImage("data/OEglStGervais.png");
+}
+
+void draw() {
+	background(#333333);
+	nwidth = int(800*factor);
+	nheight = int(800*factor*RATIO);
+	
+	float xplace = hAnc*(factor-1.0); 
+	float yplace = vAnc*(factor-1.0);
+	float widFactor = 1.0*nwidth/parBG.width*FIX;
+	float heiFactor = 1.0*nheight/parBG.height*FIX;
+	
+	//image(parBG,xplace,yplace,nwidth,nheight);
+	/*image(db1,xplace+nwidth/5.322,yplace+nheight/2.67,widFactor*db1.width,heiFactor*db1.height);
+	image(db2,xplace+nwidth/21.25,yplace+nheight/2.885,widFactor*db2.width,heiFactor*db2.height);
+	image(db3,xplace+nwidth/7.15,yplace+nheight/2.245,widFactor*db3.width,heiFactor*db3.height);
+	image(db4,xplace+nwidth/3.0,yplace+nheight/14.14,widFactor*db4.width,heiFactor*db4.height);
+	image(db5,xplace+nwidth/7.64,yplace+nheight/3.83,widFactor*db5.width,heiFactor*db5.height);
+	image(db6,xplace+nwidth/8.8,yplace+nheight/29.3,widFactor*db6.width,heiFactor*db6.height);
+	image(db7,xplace+nwidth/4.12,yplace+nheight/6.82,widFactor*db7.width,heiFactor*db7.height);
+	image(db8,xplace+nwidth/1.645,yplace+nheight/7.3,widFactor*db8.width,heiFactor*db8.height);
+	image(db9,xplace+nwidth/2.18,yplace+nheight/5.12,widFactor*db9.width,heiFactor*db9.height);
+	image(db10,xplace+nwidth/1.855,yplace+nheight/3.82,widFactor*db10.width,heiFactor*db10.height);
+	image(db11,xplace+nwidth/3.52,yplace+nheight/3.16,widFactor*db11.width,heiFactor*db11.height);
+	image(db12,xplace+nwidth/1.323,yplace+nheight/2.017,widFactor*db12.width,heiFactor*db12.height);
+	image(db13,xplace+nwidth/1.267,yplace+nheight/2.735,widFactor*db13.width,heiFactor*db13.height);
+	image(db14,xplace+nwidth/1.347,yplace+nheight/1.855,widFactor*db14.width,heiFactor*db14.height);*/
+ //image(db14,xplace+nwidth/totx,yplace+nheight/toty,widFactor*db14.width,heiFactor*db14.height);
+	/*image(parBG,0,0,800,800*RATIO);
+	image(db1,0,0);
+	image(db2,0,0);
+	image(db3,0,0);
+	image(db4,0,0);*/
+		
+}
+
+void mouseClicked(){
+  if(mouseButton == LEFT){
+    factor+=.2;
+    hAnc = int((-1.0*mouseX));
+    vAnc = int((-1.0*mouseY));
+  }
+  if(mouseButton == RIGHT){
+	hAnc = int((-1.0*mouseX));
+    vAnc = int((-1.0*mouseY));
+  }
+}
+void keyPressed(){
+  if(key == 'r'){
+    factor=1.0;
+    hAnc = 0;
+    vAnc = 0;
+  }
+  if(key == ' '){
+    animating = !animating;
+  }
+  if(key == 'w')
+    yoff+= .01;
+  if(key == 'a')
+    xoff-= .01;
+  if(key == 'd')
+    xoff += .01;
+  if(key == 's')
+    yoff-=.01;
+}
